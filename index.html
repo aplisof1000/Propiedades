@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gestor de Propiedades · V2</title>
+<link rel="stylesheet" href="styles.css">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+<div id="authScreen" class="auth-screen">
+  <div class="auth-card">
+    <div class="brand"><div class="brand-mark">GP</div><div><strong>Gestor</strong><span>Propiedades</span></div></div>
+    <h1>Acceso al sistema</h1>
+    <p>Inicie sesión para administrar sus inmuebles.</p>
+    <form id="loginForm">
+      <label>Correo electrónico<input class="input" id="email" type="email" required></label>
+      <label>Contraseña<input class="input" id="password" type="password" required></label>
+      <button class="btn primary" type="submit">Ingresar</button>
+      <button class="btn secondary" type="button" id="registerBtn">Crear cuenta</button>
+      <div id="authMsg" class="auth-msg"></div>
+    </form>
+  </div>
+</div>
+
+<aside class="sidebar" id="sidebar">
+  <div class="brand"><div class="brand-mark">GP</div><div><strong>Gestor</strong><span>Propiedades</span></div></div>
+  <nav>
+    <button class="nav-item active" data-view="dashboard">▦ <span>Dashboard</span></button>
+    <button class="nav-item" data-view="properties">⌂ <span>Propiedades</span></button>
+    <button class="nav-item" data-view="owners">◉ <span>Propietarios</span></button>
+    <button class="nav-item" data-view="tenants">♙ <span>Arrendatarios</span></button>
+    <button class="nav-item" data-view="leases">▣ <span>Arriendos</span></button>
+    <button class="nav-item" data-view="taxes">▤ <span>Impuestos</span></button>
+    <button class="nav-item" data-view="admin">◫ <span>Administración</span></button>
+    <button class="nav-item" data-view="maintenance">🔧 <span>Mantenimiento</span></button>
+    <button class="nav-item" data-view="payments">$ <span>Pagos</span></button>
+    <button class="nav-item" data-view="documents">▱ <span>Documentos</span></button>
+    <button class="nav-item" data-view="reports">◩ <span>Reportes</span></button>
+  </nav>
+  <div class="sidebar-foot"><span id="userEmail"></span><button class="btn secondary" id="logoutBtn">Cerrar sesión</button></div>
+</aside>
+
+<main class="main" id="mainApp" hidden>
+<header class="topbar">
+  <div><button id="mobileMenu" class="icon-btn">☰</button><span class="eyebrow">ADMINISTRACIÓN INMOBILIARIA</span><h1 id="pageTitle">Dashboard</h1></div>
+  <div class="top-actions"><button class="btn secondary" id="refreshBtn">Actualizar</button><button class="btn primary" id="quickAdd">+ Nuevo</button></div>
+</header>
+<section id="app"></section>
+</main>
+
+<dialog id="modal"><form method="dialog" id="modalForm"><div class="modal-head"><h2 id="modalTitle">Nuevo registro</h2><button value="cancel" class="icon-btn">✕</button></div><div id="modalBody"></div><div class="modal-actions"><button value="cancel" class="btn secondary">Cancelar</button><button id="saveModal" class="btn primary">Guardar</button></div></form></dialog>
+<div id="toast"></div>
+<script src="config.js"></script>
+<script src="app-v2.js"></script>
+</body></html>
